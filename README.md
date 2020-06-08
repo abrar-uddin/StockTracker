@@ -1,2 +1,2 @@
 # StockTracker
-Web scrapping project to track stocks
+A stock tracking application made using streamlit.
