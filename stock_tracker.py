@@ -34,7 +34,7 @@ display_values = ['Open', 'High', 'Close', 'P/E']  # Formatting key values
 try:
     chart.line_chart(get_data(ticker, time).Close)
     page_title.title(get_info(ticker)['shortName'])
-    for x in range(4):
+    for x in range(len(keys_to_get)):
         info = "".join([display_values[x], ": ", str(get_info(ticker).get(keys_to_get[x]))])
         st.write(info)
 except HTTPError:
