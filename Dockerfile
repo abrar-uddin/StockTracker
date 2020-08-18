@@ -9,7 +9,7 @@ COPY . .
 
 WORKDIR /usr/src/app/code
 # cmd to launch app when container is run
-CMD streamlit run dashboard.py --server.port $PORT
+CMD streamlit run stock_tracker.py --server.port $PORT
 
 # streamlit-specific commands for config
 ENV LC_ALL=C.UTF-8
