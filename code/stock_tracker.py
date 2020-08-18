@@ -38,7 +38,7 @@ display_values = ['Open', 'High', 'Close', 'P/E']  # Formatting key values
 try:
     page_title.title(get_info(ticker)['shortName'])
 
-    us_election_dates = pd.read_csv('data/us_election_dates.csv', usecols=['Date Presidential'])
+    us_election_dates = pd.read_csv('../data/us_election_dates.csv', usecols=['Date Presidential'])
     us_election_dates = us_election_dates.drop([*range(0, 50)])
     us_election_dates['Date Presidential'] = us_election_dates['Date Presidential'].apply(lambda x: x.replace('*', ''))
     us_election_dates['Date Presidential'] = pd.to_datetime(us_election_dates['Date Presidential'])
@@ -72,6 +72,7 @@ try:
 
             shapes_list.append(shapes)
         fig.update_layout(
+            xaxis_range=[price.index[0].date(), price.index[-1].date()],
             shapes=shapes_list
         )
     st.plotly_chart(fig)
